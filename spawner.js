@@ -16,7 +16,8 @@ var spawner = {
         console.log("Momentane Upgrader: " + upgraders);
 
         var sources = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
-        console.log(sources);
+        console.log(sources[0].pos);
+
 
 
 
