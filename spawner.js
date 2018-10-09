@@ -13,7 +13,7 @@ var spawner = {
 
         console.log("Momentane Harvester: " + harvesters);
         console.log("Momentane Builder: " + builders);
-        console.log("Momentane Upgrader: " + builders);
+        console.log("Momentane Upgrader: " + upgraders);
 
 
         if(harvesters.length < 2){
