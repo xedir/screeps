@@ -11,9 +11,9 @@ var spawner = {
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
 
-        console.log("Momentane Harvester: " + harvesters.length);
-        console.log("Momentane Builder: " + builders.length);
-        console.log("Momentane Upgrader: " + builders.length);
+        console.log("Momentane Harvester: " + harvesters);
+        console.log("Momentane Builder: " + builders);
+        console.log("Momentane Upgrader: " + builders);
 
 
         if(harvesters.length < 2){
