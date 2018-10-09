@@ -10,25 +10,25 @@ var spawner = {
         harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
-        harvesters = 3;
+
         console.log("Momentane Harvester: " + harvesters.length);
         console.log("Momentane Builder: " + builders.length);
         console.log("Momentane Upgrader: " + builders.length);
 
 
-        if(harvesters < 1){
+        if(harvesters.length < 1){
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvester1', {
                 memory: {role: 'harvester'}
             });
         }
 
-        if(builders < 2){
+        if(builders.length < 2){
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Builder1', {
                 memory: {role: 'builder'}
             });
         }
 
-        if(upgraders < 2){
+        if(upgraders.length < 2){
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgrader1', {
                 memory: {role: 'upgrader'}
             });
