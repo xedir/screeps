@@ -15,6 +15,10 @@ var spawner = {
         console.log("Momentane Builder: " + builders);
         console.log("Momentane Upgrader: " + upgraders);
 
+        var sources = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
+        console.log(sources);
+
+
 
         if(harvesters.length < 3){
             var name = "Harvester" + Game.time.toString() ;
