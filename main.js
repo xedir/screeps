@@ -4,6 +4,8 @@ var roleBuilder = require('role.builder');
 
 module.exports.loop = function () {
 
+
+
     var tower = Game.getObjectById('TOWER_ID');
     if(tower) {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
@@ -24,6 +26,13 @@ module.exports.loop = function () {
             memory: {role: 'harvester'}
         });
     }
+
+    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50)){
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
+            memory: {role: 'builder'}
+        });
+    }
+
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
