@@ -3,9 +3,13 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50);
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
+        var harvesters = 0;
+        var builders = 0;
+        var upgraders = 0;
+
+        harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50);
+        builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
+        upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
         console.log("Momentane Harvester: " + harvesters.length);
         console.log("Momentane Builder: " + builders.length);
         console.log("Momentane Upgrader: " + builders.length);
