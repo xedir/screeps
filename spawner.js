@@ -17,19 +17,22 @@ var spawner = {
 
 
         if(harvesters.length < 2){
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvester1', {
+            var name = "Harvester0" + harvesters.length
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'harvester'}
             });
         }
 
         if(builders.length < 3){
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Builder1', {
+            var name = "Builder0" + builders.length
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
             });
         }
 
         if(upgraders.length < 3){
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgrader1', {
+            var name = "Upgrader0" + upgraders.length
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
             });
         }
