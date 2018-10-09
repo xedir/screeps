@@ -33,6 +33,11 @@ module.exports.loop = function () {
         });
     }
 
+    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50)){
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgrader1', {
+            memory: {role: 'upgrader'}
+        });
+    }
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
