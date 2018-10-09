@@ -16,21 +16,17 @@ var spawner = {
         console.log("Momentane Upgrader: " + upgraders);
 
 
-        if(harvesters.length < 4){
+        if(harvesters.length < 3){
             var name = "Harvester0" + harvesters.length;
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'harvester'}
             });
-        }
-
-        if(builders.length < 3){
+        } else if(builders.length < 3){
             var name = "Builder0" + builders.length;
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
             });
-        }
-
-        if(upgraders.length < 2){
+        } else if(upgraders.length < 2){
             var name = "Upgrader0" + upgraders.length;
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
