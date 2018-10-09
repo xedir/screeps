@@ -18,7 +18,7 @@ var spawner = {
 
         if(harvesters.length < 4){
             var name = "Harvester0" + harvesters.length;
-            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'harvester'}
             });
         }
