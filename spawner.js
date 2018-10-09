@@ -3,7 +3,7 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
-        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
+        var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         console.log(creeps.length);
 
 
