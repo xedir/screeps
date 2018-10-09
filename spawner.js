@@ -3,9 +3,9 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
-        var harvesters = 0;
-        var builders = 0;
-        var upgraders = 0;
+        var harvesters = null;
+        var builders = null;
+        var upgraders = null;
 
         harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
