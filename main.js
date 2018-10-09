@@ -5,6 +5,11 @@ var spawner = require('spawner');
 
 module.exports.loop = function () {
 
+    for(var i in Memory.creeps) {
+        if(!Game.creeps[i]) {
+            delete Memory.creeps[i];
+        }
+    }
 
 
     var tower = Game.getObjectById('TOWER_ID');
