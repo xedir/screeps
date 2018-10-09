@@ -19,6 +19,12 @@ module.exports.loop = function () {
         }
     }
 
+    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50)){
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
+            memory: {role: 'harvester'}
+        });
+    }
+
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
