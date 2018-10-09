@@ -30,7 +30,7 @@ var spawner = {
             });
         }
 
-        if(upgraders.length < 3){
+        if(upgraders.length < 2){
             var name = "Upgrader0" + upgraders.length;
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
