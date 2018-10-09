@@ -4,7 +4,7 @@ var spawner = {
     run: function(spawn) {
 
         var creeps = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
-        console.log(creeps);
+        console.log(creeps.length);
 
 
         if((_.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50).length) < 1){
