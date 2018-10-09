@@ -1,6 +1,7 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var spawner = require('spawner');
 
 module.exports.loop = function () {
 
@@ -21,23 +22,6 @@ module.exports.loop = function () {
         }
     }
 
-    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50)){
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvester1', {
-            memory: {role: 'harvester'}
-        });
-    }
-
-    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50)){
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Builder1', {
-            memory: {role: 'builder'}
-        });
-    }
-
-    if(_.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50)){
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Upgrader1', {
-            memory: {role: 'upgrader'}
-        });
-    }
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -50,5 +34,10 @@ module.exports.loop = function () {
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
         }
+    }
+
+    for(var spawns in Game.spawns){
+        var spawn = Game.spawns[spawns];
+        spawner.run(spawn);
     }
 };
