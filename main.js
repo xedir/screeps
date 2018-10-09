@@ -22,13 +22,13 @@ module.exports.loop = function () {
     }
 
     if(_.filter(Game.creeps, (creep) => creep.memory.role == 'harvester' && creep.ticksToLive > 50)){
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Harvester1', {
             memory: {role: 'harvester'}
         });
     }
 
     if(_.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50)){
-        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Worker1', {
+        Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], 'Builder1', {
             memory: {role: 'builder'}
         });
     }
