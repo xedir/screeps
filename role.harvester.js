@@ -16,9 +16,9 @@ var roleHarvester = {
             }
         }
         else {
-            var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+            var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity) );
+                    return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity && structure.inRangeTo(creep.pos)) );
                 }
             });
             if(targets.length > 0) {
