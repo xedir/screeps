@@ -36,17 +36,17 @@ var spawner = {
             });
         } else if(builders.length < 3){
             var name = "Builder " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
             });
         } else if (rep.length < 1){
             var name = "Repairer " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'repairer'}
             });
-        } else if(upgraders.length < 3){
+        } else if(upgraders.length < 5){
             var name = "Upgrader " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
             });
         } else if (sources.length > 1){
