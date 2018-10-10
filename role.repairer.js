@@ -31,9 +31,9 @@ var roleRepairer = {
                     return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] < (structure.storeCapacity+1)))
                 }
             });
-            if(targets.length > 0) {
-                if(creep.withdraw(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+            if(targets2.length > 0) {
+                if(creep.withdraw(targets2[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets2[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
         }
