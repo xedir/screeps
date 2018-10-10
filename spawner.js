@@ -27,6 +27,7 @@ var spawner = {
         console.log("Momentane Harvester2: " + ha2);
         console.log("Momentane Builder: " + builders);
         console.log("Momentane Upgrader: " + upgraders);
+        console.log("Momentane Repairern: " + rep);
 
         if(ha1.length < 3){
             var name = "Harvester1 " + Game.time.toString() ;
