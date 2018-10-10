@@ -6,13 +6,14 @@ var roleHarvester = {
             var sources = creep.room.find(FIND_SOURCES);
             if(creep.memory.role == "ha1") {
                 if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+                    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
-            } else if(creep.memory.role == "ha2")
+            } else if(creep.memory.role == "ha2"){
                 if (creep.harvest(sources[1]) == ERR_NOT_IN_RANGE)
                 {
                     creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
+            }
         }
         else {
             var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
