@@ -18,8 +18,8 @@ var roleCarry = {
                 filter: (structure) => {
                     return ((structure.structureType == STRUCTURE_CONTAINER)
                         && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity)
-                        && !structure.inRangeTo(sources[0])
-                        && !structure.inRangeTo(sources[1])
+                        && !structure.pos.inRangeTo(sources[0])
+                        && !structure.pos.inRangeTo(sources[1])
                     )
                 }
             });
@@ -34,8 +34,8 @@ var roleCarry = {
                 filter: (structure) => {
                     return ((structure.structureType == STRUCTURE_CONTAINER)
                         && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity)
-                        && (structure.inRangeTo(sources[0])
-                        || structure.inRangeTo(sources[1]))
+                        && (structure.pos.inRangeTo(sources[0])
+                        || structure.pos.inRangeTo(sources[1]))
                         )
                 }
             });
