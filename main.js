@@ -32,14 +32,13 @@ module.exports.loop = function () {
 
 
     if(Game.spawns['Spawn1'].memory.init == false){
-        var derSpawn = Game.spawns['Spawns1'];
-        derSpawn.memory.quelle1 = Game.getObjectById(derSpawn.room.find(FIND_SOURCES[0]));
-        derSpawn.memory.quelle2 = false;
+        Game.spawns['Spawn1'].memory.quelle1 = Game.getObjectById(Game.spawns['Spawn1'].room.find(FIND_SOURCES[0]));
+        Game.spawns['Spawn1'].memory.quelle2 = false;
 
         if(room.find(FIND_SOURCES).length > 1){
-            derSpawn.memory.quelle2 = Game.getObjectById(derSpawn.room.find(FIND_SOURCES[1]));
+            Game.spawns['Spawn1'].memory.quelle2 = Game.getObjectById(Game.spawns['Spawn1'].room.find(FIND_SOURCES[1]));
         }
-        derSpawn.memory.init = true;
+        Game.spawns['Spawn1'].memory.init = true;
     }
 
 
