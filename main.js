@@ -45,7 +45,7 @@ module.exports.loop = function () {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
     }));
 
-    console.log("Container an Quelle1: " + Game.getObjectById(Game.spawns['Spawn1'].quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
+    console.log("Container an Quelle1: " + Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
     }));
 
