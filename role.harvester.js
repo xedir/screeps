@@ -26,11 +26,11 @@ var roleHarvester = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
-                var targets = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)
-                console.log(targets);
-                if(targets.length > 0) {
-                    if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)
+                console.log(target);
+                if(target) {
+                    if(creep.build(target) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
                 }
             }
