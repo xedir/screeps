@@ -49,6 +49,10 @@ module.exports.loop = function () {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
     }));
 
+    console.log("Container an Quelle2: " + Game.getObjectById(Game.spawns['Spawn1'].memory.quelle2).pos.findInRange(FIND_STRUCTURES, 1, {
+        filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
+    }));
+
 
 
 
