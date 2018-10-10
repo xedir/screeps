@@ -41,7 +41,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].memory.init = true;
     }
 
-    console.log(Game.spawns['Spawn1'].room.findInRange(FIND_STRUCTURES, 3, {
+    console.log(Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
     }));
 
