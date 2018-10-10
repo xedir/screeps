@@ -52,7 +52,7 @@ var spawner = {
         } else if (sources.length > 0){
             if (ha2.length < 1){
                 var name = "Harvester2 " + Game.time.toString() ;
-                Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], name, {
+                Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], name, {
                     memory: {role: 'ha2', source: sources[1]}
                 });
             }
