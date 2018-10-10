@@ -12,10 +12,7 @@ var spawner = {
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
 
-        console.log("Momentane Harvester1: " + ha1);
-        console.log("Momentane Harvester2: " + ha2);
-        console.log("Momentane Builder: " + builders);
-        console.log("Momentane Upgrader: " + upgraders);
+
 
         var sources = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
         console.log(sources[0].pos);
@@ -24,7 +21,10 @@ var spawner = {
             ha2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha2' && creep.ticksToLive > 50);
         }
 
-
+        console.log("Momentane Harvester1: " + ha1);
+        console.log("Momentane Harvester2: " + ha2);
+        console.log("Momentane Builder: " + builders);
+        console.log("Momentane Upgrader: " + upgraders);
 
         if(ha1.length < 3){
             var name = "Harvester1 " + Game.time.toString() ;
