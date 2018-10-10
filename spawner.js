@@ -33,13 +33,6 @@ var spawner = {
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
                 memory: {role: 'ha1', source: sources[0]}
             });
-        } else if (sources.length > 1){
-            if (ha2.length < 0){
-                var name = "Harvester2 " + Game.time.toString() ;
-                Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
-                    memory: {role: 'ha2', source: sources[1]}
-                });
-            }
         } else if (rep.length > 1){
             var name = "Repairer " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
@@ -56,7 +49,15 @@ var spawner = {
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
             });
+        }  else if (sources.length > 1){
+            if (ha2.length < 0){
+                var name = "Harvester2 " + Game.time.toString() ;
+                Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
+                    memory: {role: 'ha2', source: sources[1]}
+                });
+            }
         }
+        
     }
 };
 
