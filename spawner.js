@@ -7,10 +7,12 @@ var spawner = {
         var ha2 = null;
         var builders = null;
         var upgraders = null;
+        var rep = null;
 
         ha1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha1' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
+        rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
 
 
 
@@ -38,8 +40,13 @@ var spawner = {
                     memory: {role: 'ha2', source: sources[1]}
                 });
             }
+        } else if (rep.length > 1){
+            var name = "Repairer " + Game.time.toString();
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
+                memory: {role: 'repairer'}
+            });
         }
-        else if(builders.length < 3){
+        else if(builders.length < 2){
             var name = "Builder " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
