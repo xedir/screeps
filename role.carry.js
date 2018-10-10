@@ -16,10 +16,10 @@ var roleCarry = {
             var sources = creep.room.find(FIND_SOURCES);
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return ((structure.structureType == STRUCTURE_CONTAINER)
+                    return ((structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_Tower)
                         && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity)
-                        && !structure.pos.inRangeTo(sources[0])
-                        && !structure.pos.inRangeTo(sources[1])
+                        && ( !sources[0].pos.findClosestByRange(structure)
+                            || !sources[1].pos.findClosestByRange(structure))
                     )
                 }
             });
