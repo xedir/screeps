@@ -44,9 +44,9 @@ module.exports.loop = function () {
         if(creep.memory.role == 'repairer') {
             roleRepairer.run(creep);
         }
-        if(creep.memory.role == 'carry'){
+        /* if(creep.memory.role == 'carry'){
             roleCarry.run(creep);
-        }
+        } */
     }
 
     for(var spawns in Game.spawns){

@@ -21,8 +21,9 @@ var roleCarry = {
                             if(structure.store[RESOURCE_ENERGY] < structure.storeCapacity == undefined) {
                                 structure.energy < structure.energyCapacity
                             }
+
                             else structure.store[RESOURCE_ENERGY] < structure.storeCapacity
-                        && ( !sources[0].pos.findClosestByRange(structure)
+                            && ( !sources[0].pos.findClosestByRange(structure)
                             || !sources[1].pos.findClosestByRange(structure))
                     )
                 }
