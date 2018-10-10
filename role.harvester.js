@@ -11,13 +11,11 @@ var roleHarvester = {
             }
         }
         else {
-            var targets = creep.room.find(FIND_STRUCTURES, {
+            var targets = creep.pos.findClosestByRange(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return ((structure.structureType == STRUCTURE_CONTAINER) && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity) );
                 }
             });
-            console.log(targets.findInRange(FIND_STRUCTURES));
-            targets.findInRange(FIND_STRUCTURES);
             if(targets.length > 0) {
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
