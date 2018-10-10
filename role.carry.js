@@ -35,9 +35,9 @@ var roleCarry = {
                 filter: (structure) => {
                     return ((structure.structureType == STRUCTURE_CONTAINER)
                         && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity+1)
-                        /* && structure.pos.inRangeTo(sources[0])*/)
-                        /* || structure.pos.inRangeTo(sources[1]))
-                        )*/
+                        && ( !sources[0].pos.findClosestByRange(structure)
+                        || !sources[1].pos.findClosestByRange(structure))
+                         )
                 }
             });
             console.log("Targets: " + targets);
