@@ -35,13 +35,16 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].memory.quelle1 = Game.spawns['Spawn1'].room.find(FIND_SOURCES)[0].id;
         Game.spawns['Spawn1'].memory.quelle2 = false;
 
-        console.log(Game.spawns['Spawn1'].room.find(FIND_SOURCES)[0].id);
-
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             Game.spawns['Spawn1'].memory.quelle2 = Game.spawns['Spawn1'].room.find(FIND_SOURCES)[1].id;
         }
         Game.spawns['Spawn1'].memory.init = true;
     }
+
+    console.log(Game.spawns['Spawn1'].room.findInRange(FIND_STRUCTURES, 3, {
+        filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
+    }));
+
 
 
     for(var name in Game.creeps) {

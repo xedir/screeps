@@ -23,13 +23,9 @@ var spawner = {
         if(sources.length > 1){
             ha2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha2' && creep.ticksToLive > 50);
         }
-/*
-        console.log("Momentane Harvester1: " + ha1);
-        console.log("Momentane Harvester2: " + ha2);
-        console.log("Momentane Builder: " + builders);
-        console.log("Momentane Upgrader: " + upgraders);
-        console.log("Momentane Repairern: " + rep);
-*/
+
+
+
         if(ha1.length < 3){
             var name = "Harvester1 " + Game.time.toString() ;
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
