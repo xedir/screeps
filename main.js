@@ -35,7 +35,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].memory.quelle1 = Game.spawns['Spawn1'].room.find(FIND_SOURCES[0]).id;
         Game.spawns['Spawn1'].memory.quelle2 = false;
 
-        Console.log(Game.spawns['Spawn1'].room.find(FIND_SOURCES[0]).id);
+        console.log(Game.spawns['Spawn1'].room.find(FIND_SOURCES[0]).id);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             Game.spawns['Spawn1'].memory.quelle2 = Game.spawns['Spawn1'].room.find(FIND_SOURCES[1]).id;
