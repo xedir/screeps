@@ -18,7 +18,7 @@ var spawner = {
 
 
         var sources = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
-        console.log(sources[0].pos);
+        //console.log(sources[0].pos);
 
         if(sources.length > 1){
             ha2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha2' && creep.ticksToLive > 50);

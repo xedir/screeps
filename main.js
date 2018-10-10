@@ -30,6 +30,19 @@ module.exports.loop = function () {
     }
 
 
+
+    if(Game.spawns['Spawn1'].memory.init == false){
+        var derSpawn = Game.spawns['Spawns1'];
+        derSpawn.memory.quelle1 = Game.getObjectById(derSpawn.room.find(FIND_SOURCES[0]));
+        derSpawn.memory.quelle2 = false;
+
+        if(room.find(FIND_SOURCES).length > 1){
+            derSpawn.memory.quelle2 = Game.getObjectById(derSpawn.room.find(FIND_SOURCES[1]));
+        }
+        derSpawn.memory.init = true;
+    }
+
+
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'ha1' || creep.memory.role == "ha2") {
