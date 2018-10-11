@@ -11,7 +11,7 @@ var spawner = {
 
         var roomMaxSpawnEnergy =  roomSpawnEnergy + roomExtensionEnergy;
 
-        console.log(roomMaxSpawnEnergy);
+        console.log(roomSpawnEnergy);
 
 
 
