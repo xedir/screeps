@@ -3,33 +3,28 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
-        var ha1 = null;
-        var ha2 = null;
-        var builders = null;
-        var upgraders = null;
-        var rep = null;
-        var carry = null;
-
-        ha1 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha1' && creep.ticksToLive > 50);
+        lebendeHarvesterOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceOne' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
         rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
         carry = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50);
 
 
-        var sources = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
-        //console.log(sources[0].pos);
 
-        if(sources.length > 1){
-            ha2 = _.filter(Game.creeps, (creep) => creep.memory.role == 'ha2' && creep.ticksToLive > 50);
+        if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
+            lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceTwo' && creep.ticksToLive > 50);
         }
 
 
 
-        if(ha1.length < 3){
+        if(lebendeHarvesterOne.length < 2){
             var name = "Harvester1 " + Game.time.toString() ;
-            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], name, {
-                memory: {role: 'ha1', source: sources[0]}
+            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, CARRY, MOVE], name, {
+                    memory: {role: 'harvesterSourceOne',
+                    source: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1),
+                    container: Game.getObjectById(Game.spawns['Spawn1'].quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
+                        filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
+                    })}
             });
         } else if(carry.length < 0){
             var name = "Carry " + Game.time.toString();
@@ -52,10 +47,14 @@ var spawner = {
                 memory: {role: 'upgrader'}
             });
         } else if (sources.length > 1){
-            if (ha2.length < 1){
+            if (lebendeHarvesterTwo.length < 2){
                 var name = "Harvester2 " + Game.time.toString() ;
-                Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, MOVE, MOVE], name, {
-                    memory: {role: 'ha2', source: sources[1]}
+                Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], name, {
+                    memory: {role: 'harvesterSourceTwo',
+                    source: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle2),
+                    container: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle2).pos.findInRange(FIND_STRUCTURES, 1, {
+                        filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
+                    })}
                 });
             }
         }
