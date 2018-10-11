@@ -22,7 +22,7 @@ var spawner = {
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, CARRY, MOVE], name, {
                     memory: {role: 'harvesterSourceOne',
                     source: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1),
-                    container: Game.getObjectById(Game.spawns['Spawn1'].quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
+                    container: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
                         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
                     })}
             });
