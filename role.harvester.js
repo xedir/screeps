@@ -3,6 +3,7 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
         if(creep.carry.energy < creep.carryCapacity) {
+            console.log(Game.getObjectById(creep.memory.source.id));
 
             if(creep.memory.role == "harvesterSourceOne") {
                 if (creep.harvest(Game.getObjectById(creep.memory.source.id)) == ERR_NOT_IN_RANGE){
