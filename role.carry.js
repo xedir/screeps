@@ -41,7 +41,7 @@ var roleCarry = {
 
             var quellen = Game.spawns['Spawn1'].room.find(FIND_SOURCES);
 
-            if (quellen.length > 2) {
+            if (quellen.length > 1) {
                 var target1 = Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
                     filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy != 0
                 });
