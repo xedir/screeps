@@ -13,7 +13,7 @@ var roleCarry = {
         }
 
         if (creep.memory.carrying) {
-            var targets = Game.spawns['Spawn1'].pos.find(FIND_STRUCTURES, {
+            var targets = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
                 filter: (structure) => structure.structureType == STRUCTURE_SPAWN || structure.structureType == STRUCTURE_EXTENSION && structure.energy < structure.storeCapacity
             });
             if(targets.length > 0){
