@@ -20,8 +20,8 @@ var roleHarvester = {
             }
         }
         else {
-                if(creep.transfer(creep.memory.container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(creep.memory.container, {visualizePathStyle: {stroke: '#ffffff'}});
+                if(creep.transfer(Game.getObjectById(creep.memory.container.id), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(Game.getObjectById(creep.memory.container.id), {visualizePathStyle: {stroke: '#ffffff'}});
                 }
         }
     }

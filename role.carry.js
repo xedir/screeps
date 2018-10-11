@@ -13,30 +13,20 @@ var roleCarry = {
         }
 
         if (creep.memory.carrying) {
-            var sources = creep.room.find(FIND_SOURCES);
-            var targets = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return ((structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_TOWER))
-                    }
-            });
-            targets = _.sortBy(targets, s => s.store[RESOURCE_ENERGY]);
-            if (creep.withdraw(targets[0]) == ERR_NOT_IN_RANGE) {
+            var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
+                filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
+            })
+            if (creep.transfer(targets[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
-            console.log("Sources: " + sources);
-            var targets = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return ((structure.structureType == STRUCTURE_CONTAINER)
-                        && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity+1)
-                        && ( !sources[0].pos.findClosestByRange(structure)
-                        || !sources[1].pos.findClosestByRange(structure))
-                         )
-                }
-            });
-            console.log("Targets: " + targets);
+
+            var targets = Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
+                filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
+            })
+
+
             if (targets.length > 0) {
                 if (creep.withdraw(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
