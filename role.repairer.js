@@ -19,13 +19,13 @@ var roleRepairer = {
                 filter: object => object.structureType == STRUCTURE_CONTAINER
             });
             targets.sort((a,b) => a.hits - b.hits);
-            creep.memory.repairJob = targets[0];
+            creep.memory.repairJob = targets[0].id;
         }
 
 
-        if(toRepair.hits !== toRepair.hitsMax && creep.memory.repairing){
-            if(creep.repair(Game.getObjectById(toRepair.id)) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.getObjectById(toRepair.id));
+        if(Game.getObjectById(toRepair.hits) !== Game.getObjectById(toRepair).hitsMax && creep.memory.repairing){
+            if(creep.repair(Game.getObjectById(toRepair)) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(toRepair));
             }
         } else if (creep.memory.repairing) {
             var targets = creep.room.find(FIND_STRUCTURES, {
