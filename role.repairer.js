@@ -12,30 +12,30 @@ var roleRepairer = {
             creep.say('⚡ upgrade');
         }
 
-        var targets = creep.room.find(FIND_STRUCTURES, {
-            filter: object => object.hits < object.hitsMax && object.structureType == STRUCTURE_CONTAINER
-        });
 
-        targets.sort((a,b) => a.hits - b.hits);
-
-        if(creep.memory.repairing) {
-            if(targets.length > 0) {
-                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0]);
-                }
-            } else{
+        if(creep.memory.repairJob.hits !== creep.memory.repairJob.hitsMax && creep.memory.repairing){
+            if(creep.repair(creep.memory.repairJob) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.memory.repairJob);
+            }
+        } else if (creep.memory.repairing) {
+            var targets = creep.room.find(FIND_STRUCTURES, {
+                filter: object => object.hits < object.hitsMax && object.structureType === STRUCTURE_CONTAINER
+            });
+            targets.sort((a,b) => a.hits - b.hits);
+            if(targets.length > 0){
+                creep.memory.repairJob = targets[0]
+            } else {
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: object => object.hits < object.hitsMax
                 })
                 targets.sort((a,b) => a.hits - b.hits);
-            if(targets.length > 0) {
-                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0]);
+                if (targets.length > 0){
+                    creep.memory.repairJob = targets[0]
                 }
-        }}}
-        else {
+            }
+        } else {
             var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
-                filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy > 50
+                filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy > 50
             })
             if(targets.length > 0) {
                 if(creep.withdraw(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
