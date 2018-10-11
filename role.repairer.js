@@ -22,8 +22,8 @@ var roleRepairer = {
 
 
         if(creep.memory.repairJob.hits !== creep.memory.repairJob.hitsMax && creep.memory.repairing){
-            if(creep.repair(creep.memory.repairJob) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.memory.repairJob);
+            if(creep.repair(Game.getObjectById(creep.memory.repairJob.id)) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(creep.memory.repairJob.id));
             }
         } else if (creep.memory.repairing) {
             var targets = creep.room.find(FIND_STRUCTURES, {
