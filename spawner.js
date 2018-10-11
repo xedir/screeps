@@ -38,7 +38,7 @@ var spawner = {
                 Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
                     memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
                 });
-        }else if(builders.length < 1){
+        }else if(builders.length < 3){
             var name = "Builder " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
