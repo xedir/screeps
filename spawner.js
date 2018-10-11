@@ -7,7 +7,7 @@ var spawner = {
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
         rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
-        lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50 && creep.memory.quelle == 'quelle1');
+        lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 150 && creep.memory.quelle == 'quelle1');
 
 
         //console.log(lebendeHarvesterOne);
@@ -28,7 +28,7 @@ var spawner = {
                         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
                     })}
             });
-        } else if(lebendeCarrysOne.length < 2){
+        } else if(lebendeCarrysOne.length < 1){
             var name = "Carry " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,CARRY,WORK,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'carry', carrying: false, quelle: 'quelle1'}
