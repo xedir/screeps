@@ -44,13 +44,9 @@ var spawner = {
                 memory: {role: 'builder'}
             });
         } else if (rep.length < 2){
-            var targets = creep.room.find(FIND_STRUCTURES, {
-                filter: object => object.structureType == STRUCTURE_CONTAINER
-            });
-            targets.sort((a,b) => a.hits - b.hits);
             var name = "Repairer " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
-                memory: {role: 'repairer', repairJob: targets[0]}
+                memory: {role: 'repairer', repairJob: undefined}
             });
         } else if(upgraders.length < 2){
             var name = "Upgrader " + Game.time.toString();

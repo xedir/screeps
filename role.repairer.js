@@ -12,6 +12,13 @@ var roleRepairer = {
             creep.say('⚡ upgrade');
         }
 
+        if(creep.memory.repairJob === undefined){
+            var targets = creep.room.find(FIND_STRUCTURES, {
+                filter: object => object.structureType == STRUCTURE_CONTAINER
+            });
+            targets.sort((a,b) => a.hits - b.hits);
+        }
+
 
         if(creep.memory.repairJob.hits !== creep.memory.repairJob.hitsMax && creep.memory.repairing){
             if(creep.repair(creep.memory.repairJob) === ERR_NOT_IN_RANGE) {
