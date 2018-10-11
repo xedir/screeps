@@ -23,15 +23,15 @@ var roleRepairer = {
                 if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
-            } else
+            } else{
                 var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: object => object.hits < object.hitsMax
-                });
+                })
             if(targets.length > 0) {
                 if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0]);
                 }
-        }
+        }}}
         else {
             var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
                 filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy > 50
