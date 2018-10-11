@@ -14,7 +14,9 @@ var roleCarry = {
 
         if (creep.memory.carrying) {
             var targets = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
-                filter: (structure) => (structure.structureType == STRUCTURE_SPAWN && structure.energy < structure.energyCapacity) || (structure.structureType == STRUCTURE_EXTENSION && structure.energy < structure.energyCapacity)
+                filter: (structure) => (structure.structureType == STRUCTURE_SPAWN && structure.energy < structure.energyCapacity)
+                    || (structure.structureType == STRUCTURE_EXTENSION && structure.energy < structure.energyCapacity)
+                    || (structure.structureType == STRUCTURE_TOWER && structure.energy < structure.energyCapacity)
             });
             if(targets.length > 0){
                 if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
