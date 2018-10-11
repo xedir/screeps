@@ -9,7 +9,7 @@ var spawner = {
         rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
         carry = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50);
 
-
+        console.log(lebendeHarvesterOne);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceTwo' && creep.ticksToLive > 50);
