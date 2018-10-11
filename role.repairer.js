@@ -12,6 +12,8 @@ var roleRepairer = {
             creep.say('⚡ upgrade');
         }
 
+        var toRepair = creep.memory.repairJob;
+
         if(creep.memory.repairJob === undefined){
             var targets = creep.room.find(FIND_STRUCTURES, {
                 filter: object => object.structureType == STRUCTURE_CONTAINER
@@ -21,9 +23,9 @@ var roleRepairer = {
         }
 
 
-        if(creep.memory.repairJob.hits !== creep.memory.repairJob.hitsMax && creep.memory.repairing){
-            if(creep.repair(Game.getObjectById(creep.memory.repairJob.id)) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.getObjectById(creep.memory.repairJob.id));
+        if(toRepair.hits !== toRepair.hitsMax && creep.memory.repairing){
+            if(creep.repair(Game.getObjectById(toRepair.id)) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(toRepair.id));
             }
         } else if (creep.memory.repairing) {
             var targets = creep.room.find(FIND_STRUCTURES, {
