@@ -41,6 +41,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].memory.init = true;
     }
 
+    /*
     console.log("Container am Spawn: " + Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
     }));
@@ -53,7 +54,7 @@ module.exports.loop = function () {
         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
     }));
 
-
+*/
 
 
     for(var name in Game.creeps) {
