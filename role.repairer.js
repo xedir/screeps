@@ -12,7 +12,7 @@ var roleRepairer = {
             creep.say('⚡ upgrade');
         }
 
-        var toRepair = creep.memory.repairJob;
+        var toRepair = creep.memory.repairJob.id;
 
         if(creep.memory.repairJob === undefined){
             var targets = creep.room.find(FIND_STRUCTURES, {
@@ -23,7 +23,9 @@ var roleRepairer = {
         }
 
 
-        /* if((Game.getObjectById(toRepair)).hits !== (Game.getObjectById(toRepair)).hitsMax && creep.memory.repairing){
+
+
+        if((Game.getObjectById(toRepair)).hits !== (Game.getObjectById(toRepair)).hitsMax && creep.memory.repairing){
             if(creep.repair(Game.getObjectById(toRepair.id)) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(Game.getObjectById(toRepair.id));
             }
@@ -52,7 +54,7 @@ var roleRepairer = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
-        } */
+        }
     }
 };
 
