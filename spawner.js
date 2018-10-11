@@ -30,10 +30,10 @@ var spawner = {
             });
         } else if(lebendeCarrysOne.length < 2){
             var name = "Carry " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,CARRY,WORK,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'carry', carrying: false, quelle: 'quelle1'}
             });
-        }else if(lebendeCarrysTwo.length < 2){
+        }else if(lebendeCarrysTwo.length < 3){
                 var name = "Carry " + Game.time.toString();
                 Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
                     memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
@@ -45,7 +45,7 @@ var spawner = {
             });
         } else if (rep.length < 2){
             var name = "Repairer " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
                 memory: {role: 'repairer'}
             });
         } else if(upgraders.length < 4){
