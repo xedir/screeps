@@ -9,7 +9,7 @@ var spawner = {
         rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
         carry = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50);
 
-        console.log(lebendeHarvesterOne);
+        //console.log(lebendeHarvesterOne);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceTwo' && creep.ticksToLive > 50);
@@ -46,7 +46,7 @@ var spawner = {
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
             });
-        } else if (sources.length > 1){
+        } else if (Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             if (lebendeHarvesterTwo.length < 2){
                 var name = "Harvester2 " + Game.time.toString() ;
                 Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], name, {
