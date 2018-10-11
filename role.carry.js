@@ -54,9 +54,9 @@ var roleCarry = {
                     if (creep.withdraw(target1[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(target1[0], {visualizePathStyle: {stroke: '#ffffff'}})
                     }
-                    else if (creep.withdraw(target2[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                        creep.moveTo(target2[0], {visualizePathStyle: {stroke: '#ffffff'}})
-                    }
+                }
+                else if (creep.withdraw(target2[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(target2[0], {visualizePathStyle: {stroke: '#ffffff'}})
                 }
             } else {
                 var target1 = Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
