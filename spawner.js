@@ -3,10 +3,14 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
-        var roomMaxSpawnEnergy = (Game.spawns.length * 300) +
-            Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
-                filter: (structure) => structure.structureType == STRUCTURE_EXTENSION
-            }).length * 50;
+        var roomSpawnEnergy = Game.spawns.length * 300;
+
+        var roomExtensionEnergy = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
+            filter: (structure) => structure.structureType == STRUCTURE_EXTENSION
+        }).length * 50;
+
+        var roomMaxSpawnEnergy =  roomSpawnEnergy + roomExtensionEnergy;
+
         console.log(roomMaxSpawnEnergy);
 
 
