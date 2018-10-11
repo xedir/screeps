@@ -3,6 +3,15 @@ var spawner = {
     /** @param {Creep} creep **/
     run: function(spawn) {
 
+        var roomMaxSpawnEnergy = (Game.spawns.length * 300) +
+            Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
+                filter: (structure) => structure.structureType == STRUCTURE_EXTENSION
+            }).length * 50;
+        console.log(roomMaxSpawnEnergy);
+
+
+
+
         lebendeHarvesterOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceOne' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
@@ -45,7 +54,7 @@ var spawner = {
             });
         } else if (rep.length < 2){
             var name = "Repairer " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
                 memory: {role: 'repairer', repairJob: undefined}
             });
         } else if(upgraders.length < 2){
