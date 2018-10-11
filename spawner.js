@@ -7,12 +7,14 @@ var spawner = {
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
         upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader' && creep.ticksToLive > 50);
         rep = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer' && creep.ticksToLive > 50);
-        carry = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50);
+        lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50 && creep.memory.quelle == 'quelle1');
+
 
         //console.log(lebendeHarvesterOne);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceTwo' && creep.ticksToLive > 50);
+            lebendeCarrysTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50 && creep.memory.quelle == 'quelle2');
         }
 
 
@@ -26,11 +28,16 @@ var spawner = {
                         filter: (structure) => structure.structureType == STRUCTURE_CONTAINER
                     })}
             });
-        } else if(carry.length < 3){
+        } else if(lebendeCarrysOne.length < 2){
             var name = "Carry " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE, MOVE], name, {
-                memory: {role: 'carry', carrying: false}
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
+                memory: {role: 'carry', carrying: false, quelle: 'quelle1'}
             });
+        else if(lebendeCarrysTwo.length < 2){
+                var name = "Carry " + Game.time.toString();
+                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
+                    memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
+                });
         }else if(builders.length < 1){
             var name = "Builder " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
