@@ -23,9 +23,9 @@ var roleRepairer = {
         }
 
 
-        if((Game.getObjectById(toRepair)).hits !== (Game.getObjectById(toRepair)).hitsMax && creep.memory.repairing){
-            if(creep.repair(Game.getObjectById(toRepair)) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.getObjectById(toRepair));
+        if(Game.getObjectById(toRepair).hits !== Game.getObjectById(toRepair).hitsMax && creep.memory.repairing){
+            if(creep.repair(Game.getObjectById(toRepair.id)) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById(toRepair.id));
             }
         } else if (creep.memory.repairing) {
             var targets = creep.room.find(FIND_STRUCTURES, {
