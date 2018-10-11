@@ -42,7 +42,7 @@ var roleCarry = {
             var targets = Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
                 filter: (structure) => structure.structureType == STRUCTURE_CONTAINER && structure.store.energy != 0
             });
-            targets = _.sortBy(targets, s => s.store.energy);
+            targets = _.sortBy(targets, s => s.store.energy).reverse();
 
             if (targets.length > 0) {
                 if (creep.withdraw(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
