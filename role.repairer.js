@@ -17,6 +17,7 @@ var roleRepairer = {
                 filter: object => object.structureType == STRUCTURE_CONTAINER
             });
             targets.sort((a,b) => a.hits - b.hits);
+            creep.memory.repairJob = targets[0];
         }
 
 
