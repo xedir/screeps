@@ -31,7 +31,7 @@ var spawner = {
         }
 
         console.log('HarvesterOne: ' + lebendeHarvesterOne.length + '  '
-                    + lebendeHarvesterTwoDebugText +
+                    + lebendeHarvesterTwoDebugText
                     + 'Builder : ' + builders.length + '  '
                     + 'Upgraders: ' + upgraders.length + '  '
                     + 'CarrysOne: ' + lebendeCarrysOne.length + '  '
