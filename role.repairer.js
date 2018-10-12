@@ -39,8 +39,10 @@ var roleRepairer = {
                 }
             }
         } else {
+            if(backup === null){
             creep.memory.building = true;
             roleBuilder.run(creep);
+            }
         }
         if (creep.memory.repairJobId !== 'voll' && creep.memory.repairJobId !== 'undefined' && creep.memory.repairing) {
             var target = Game.getObjectById(creep.memory.repairJobId);
