@@ -52,6 +52,7 @@ var roleRepairer = {
 
                 if (creep.repair(target) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(target)
+                    console.log(creep.name * ". . moving to Repairjob")
                 }
             } else
                 creep.memory.repairJobId = 'voll';
