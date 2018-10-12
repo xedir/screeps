@@ -14,9 +14,9 @@ var roomManager = {
                 var posi = pfad[posis];
                 var struktur = posi.lookFor(LOOK_STRUCTURES);
 
-                if(struktur === undefined){
+                if(struktur != 'structure'){
                     struktur = posi.lookFor(LOOK_CONSTRUCTION_SITES);
-                    if(struktur === undefined){
+                    if(struktur != 'constructionSite'){
                         spawn.room.createConstructionSite(posi, STRUCTURE_ROAD)
                     }
                     console.log(struktur)
