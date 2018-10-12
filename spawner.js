@@ -43,7 +43,7 @@ var spawner = {
 
         if(lebendeHarvesterOne.length < 2){
             var name = "Harvester1 " + Game.time.toString() ;
-            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY], name, {
                     memory: {role: 'harvesterSourceOne',
                     source: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1),
                     container: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle1).pos.findInRange(FIND_STRUCTURES, 1, {
@@ -78,7 +78,7 @@ var spawner = {
         } else if (Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             if (lebendeHarvesterTwo.length < 2){
                 var name = "Harvester2 " + Game.time.toString() ;
-                Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE, MOVE], name, {
+                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY], name, {
                     memory: {role: 'harvesterSourceTwo',
                     source: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle2),
                     container: Game.getObjectById(Game.spawns['Spawn1'].memory.quelle2).pos.findInRange(FIND_STRUCTURES, 1, {
