@@ -5,11 +5,9 @@ var roleRepairer = {
 
         if(creep.memory.repairing && creep.carry.energy === 0) {
             creep.memory.repairing = false;
-            creep.say('🔄 loot');
         }
         if(!creep.memory.repairing && creep.carry.energy === creep.carryCapacity) {
             creep.memory.repairing = true;
-            creep.say('⚡ upgrade');
         }
 
 
@@ -40,6 +38,7 @@ var roleRepairer = {
 
         if(creep.memory.repairing){
             if(target.hits < target.hitsMax){
+                creep.say('Rep ' + target.structureType);
                 if(creep.repair(target) === ERR_NOT_IN_RANGE){
                     creep.moveTo(target)
                 }
@@ -51,6 +50,7 @@ var roleRepairer = {
                 filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy > 50
             })
             if(targets.length > 0) {
+                creep.say('Tanken_R');
                 if(creep.withdraw(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
