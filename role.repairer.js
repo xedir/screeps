@@ -16,7 +16,7 @@ var roleRepairer = {
 
         if(creep.memory.repairJobId === 'voll' || creep.memory.repairJobId === 'undefined'){
             var targets = creep.room.find(FIND_STRUCTURES,{
-                filter: object => object.structureType === STRUCTURE_CONTAINER && ((object.hitsMax - object.hits)  < (object.hitsMax * 0.1))
+                filter: object => object.structureType === STRUCTURE_CONTAINER && ((object.hitsMax - object.hits)  > (object.hitsMax * 0.1))
             });
 
 
@@ -25,7 +25,7 @@ var roleRepairer = {
                 creep.memory.repairJobId = targets[0].id
             } else {
                 var targets = creep.room.find(FIND_STRUCTURES,{
-                    filter: object => (object.hitsMax - object.hits)  < (object.hitsMax * 0.1)
+                    filter: object => (object.hitsMax - object.hits)  > (object.hitsMax * 0.1)
                 });
                 targets.sort((a,b) => a.hits -b.hits);
                 creep.memory.repairJobId = targets[0].id
