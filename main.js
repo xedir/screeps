@@ -96,7 +96,7 @@ module.exports.loop = function () {
     for(var spawns in Game.spawns){
         var spawn = Game.spawns[spawns];
         spawner.run(spawn);
-        roomManager.run(spawn.room);
+        roomManager.run(spawn);
     }
 
 
