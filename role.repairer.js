@@ -9,10 +9,12 @@ var roleRepairer = {
         if(!creep.memory.repairing && creep.carry.energy === creep.carryCapacity) {
             creep.memory.repairing = true;
         }
+        var backup = creep.pos.findClosestByPath(FIND_STRUCTURES,{
+            filter: object => (object.hits < object.hitsMax)
+        });
 
 
-
-        if(creep.memory.repairJobId === 'voll' || creep.memory.repairJobId === 'undefined' && creep.memory.repairing){
+        if(creep.memory.repairJobId === 'voll' || creep.memory.repairJobId === 'undefined' && creep.memory.repairing && backup != null){
             var targets = creep.room.find(FIND_STRUCTURES,{
                 filter: object => object.structureType === STRUCTURE_CONTAINER && ((object.hitsMax - object.hits)  > (object.hitsMax * 0.1))
             });
@@ -30,10 +32,8 @@ var roleRepairer = {
                 creep.memory.repairJobId = '' + targets.id
                 creep.say('Rep ' + targets.structureType);
                 } else {
-                    var targets = creep.pos.findClosestByPath(FIND_STRUCTURES,{
-                        filter: object => (object.hits < object.hitsMax)
-                    });
-                    creep.memory.repairJobId = '' + targets.id
+
+                    creep.memory.repairJobId = '' + backup.id
                 }
             }
 
