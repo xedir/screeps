@@ -11,7 +11,7 @@ var roomManager = {
             spawn.memory.status = 1;
 
             for(var posis in pfad){
-                var posi = pfad[spawns];
+                var posi = pfad[posis];
                 var struktur = posi.lookFor(LOOK_STRUCTURES)
                 console.log(struktur)
             }
