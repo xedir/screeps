@@ -45,14 +45,16 @@ var roleRepairer = {
             }
         }
         if (creep.memory.repairJobId !== 'voll' && creep.memory.repairJobId !== 'undefined' && creep.memory.repairing) {
-            var target = Game.getObjectById(creep.memory.repairJobId);
+            var target = Game.getObjectById('' + creep.memory.repairJobId);
+            console.log(creep.name + ". ." + target)
         }
 
-        if (creep.memory.repairing) {
+        if (creep.memory.repairing && target != null) {
             if (target.hits < target.hitsMax) {
-
+                console.log(creep.name * ". . moving to Repairjob")
                 if (creep.repair(target) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(target)
+
                 }
             } else
                 creep.memory.repairJobId = 'voll';
