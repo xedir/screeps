@@ -72,7 +72,7 @@ var spawner = {
             });
         } else if(upgraders.length < 2){
             var name = "Upgrader " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'upgrader'}
             });
         } else if (Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
