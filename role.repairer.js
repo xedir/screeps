@@ -12,6 +12,8 @@ var roleRepairer = {
             creep.say('⚡ upgrade');
         }
 
+/*
+
         if(creep.memory.repairJob == undefined){
             var targets = creep.room.find(FIND_STRUCTURES,{
                 filter: object => object.structureType == STRUCTURE_CONTAINER
@@ -20,8 +22,8 @@ var roleRepairer = {
             targets.sort((a,b) => a.hits -b.hits);
             creep.memory.repairJob = targets[0].id
         }
-
-
+*/
+    creep.memory.repairJob = undefined;
 
 
     }
