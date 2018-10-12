@@ -40,7 +40,7 @@ var roleRepairer = {
 
         if(creep.memory.repairing){
             if(target.hits < target.hitsMax){
-                if(creep.repaid(target) === ERR_NOT_IN_RANGE){
+                if(creep.repair(target) === ERR_NOT_IN_RANGE){
                     creep.moveTo(target)
                 }
              } else
