@@ -13,10 +13,6 @@ var spawner = {
 
         var roomMaxSpawnEnergy =  roomSpawnEnergy + roomExtensionEnergy;
 
-        console.log(roomMaxSpawnEnergy);
-
-
-
 
         lebendeHarvesterOne = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceOne' && creep.ticksToLive > 50);
         builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder' && creep.ticksToLive > 50);
@@ -30,9 +26,18 @@ var spawner = {
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
             lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvesterSourceTwo' && creep.ticksToLive > 50);
             lebendeCarrysTwo = _.filter(Game.creeps, (creep) => creep.memory.role == 'carry' && creep.ticksToLive > 50 && creep.memory.quelle == 'quelle2');
+            var lebendeHarvesterTwoDebugText = 'HarvesterTwo: ' + lebendeHarvesterTwo.length + '  ';
+            var lebendeCarrysTwoDebugText = 'CarrysTwo: ' + lebendeCarrysTwo.length + '  ';
         }
 
-
+        console.log('HarvesterOne: ' + lebendeHarvesterOne.length + '  '
+                    + lebendeHarvesterTwoDebugText +
+                    + 'Builder : ' + builders.length + '  '
+                    + 'Upgraders: ' + upgraders.length + '  '
+                    + 'CarrysOne: ' + lebendeCarrysOne.length + '  '
+                    +   lebendeCarrysTwoDebugText +
+                    'Reps: ' + rep.length
+        );
 
         if(lebendeHarvesterOne.length < 2){
             var name = "Harvester1 " + Game.time.toString() ;
