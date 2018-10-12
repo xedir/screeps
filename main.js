@@ -77,7 +77,7 @@ module.exports.loop = function () {
     }
 
     for(var name in Game.creeps){
-        var creep=game.creeps[name];
+        var creep= Game.creeps[name];
         if(creep.ticksToLive < 30 ){
             creep.memory.role = 'tot';
             if(creep.energy > 0) {
