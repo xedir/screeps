@@ -37,9 +37,7 @@ var roleRepairer = {
 
                     creep.memory.repairJobId = '' + backup.id
                 }
-                }
-
-
+             }
         } else {
             creep.memory.building = true;
             roleBuilder.run(creep);
@@ -68,6 +66,7 @@ var roleRepairer = {
             }
         }
 
+    }
     }
 };
 
