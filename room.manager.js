@@ -12,9 +12,14 @@ var roomManager = {
 
             for(var posis in pfad){
                 var posi = pfad[posis];
-                var struktur = posi.lookFor(LOOK_STRUCTURES || LOOK_CONSTRUCTION_SITES);
+                var struktur = posi.lookFor(LOOK_STRUCTURES);
+
                 if(struktur === undefined){
-                console.log(struktur)
+                    struktur = posi.lookFor(LOOK_CONSTRUCTION_SITES);
+                    if(struktur === undefined){
+                        spawn.room.createConstructionSite(posi.x, posi.y, STRUCTURE_ROAD)
+                    }
+                    console.log(struktur)
                 }
             }
 
