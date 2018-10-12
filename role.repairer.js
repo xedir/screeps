@@ -21,18 +21,19 @@ var roleRepairer = {
             if (targets.length > 0){
                 targets.sort((a,b) => a.hits -b.hits);
                 creep.memory.repairJobId = '' + targets[0].id
+                creep.say('Rep ' + targets[0].structureType);
             } else {
                 var targets = creep.pos.findClosestByPath(FIND_STRUCTURES,{
                     filter: object => (object.hitsMax - object.hits)  > (object.hitsMax * 0.1)
                 });
                 creep.memory.repairJobId = '' + targets.id
+                creep.say('Rep ' + targets.structureType);
             }
 
         }
 
         if(creep.memory.repairJobId !== 'voll' && creep.memory.repairJobId !== 'undefined' && creep.memory.repairing){
             var target = Game.getObjectById(creep.memory.repairJobId);
-            creep.say('Rep ' + target.structureType);
         }
 
         if(creep.memory.repairing){
