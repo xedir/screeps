@@ -41,7 +41,7 @@ var spawner = {
                     'Reps: ' + rep.length
         );
 
-        if(lebendeHarvesterOne.length < 2){
+        if(lebendeHarvesterOne.length < 1){
             var name = "Harvester1 " + Game.time.toString() ;
             Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY], name, {
                     memory: {role: 'harvesterSourceOne',
@@ -76,7 +76,7 @@ var spawner = {
                 memory: {role: 'upgrader'}
             });
         } else if (Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
-            if (lebendeHarvesterTwo.length < 2){
+            if (lebendeHarvesterTwo.length < 1){
                 var name = "Harvester2 " + Game.time.toString() ;
                 Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,WORK,WORK,WORK,WORK,WORK,WORK,CARRY], name, {
                     memory: {role: 'harvesterSourceTwo',
