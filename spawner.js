@@ -14,11 +14,11 @@ var spawner = {
         var roomMaxSpawnEnergy =  roomSpawnEnergy + roomExtensionEnergy;
 
 
-        lebendeHarvesterOne = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvesterSourceOne' && creep.ticksToLive > 50);
-        builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder' && creep.ticksToLive > 50);
-        upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader' && creep.ticksToLive > 50);
-        rep = _.filter(Game.creeps, (creep) => creep.memory.role === 'repairer' && creep.ticksToLive > 50);
-        lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role === 'carry' && creep.ticksToLive > 150 && creep.memory.quelle === 'quelle1');
+        var lebendeHarvesterOne = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvesterSourceOne' && creep.ticksToLive > 50);
+        var builders = _.filter(Game.creeps, (creep) => creep.memory.role === 'builder' && creep.ticksToLive > 50);
+        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role === 'upgrader' && creep.ticksToLive > 50);
+        var rep = _.filter(Game.creeps, (creep) => creep.memory.role === 'repairer' && creep.ticksToLive > 50);
+        var lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role === 'carry' && creep.ticksToLive > 150 && creep.memory.quelle === 'quelle1');
 
 
 
