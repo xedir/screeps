@@ -26,8 +26,15 @@ var roleRepairer = {
                 var targets = creep.pos.findClosestByPath(FIND_STRUCTURES,{
                     filter: object => (object.hitsMax - object.hits)  > (object.hitsMax * 0.1)
                 });
+                if(targets != null{
                 creep.memory.repairJobId = '' + targets.id
                 creep.say('Rep ' + targets.structureType);
+                } else {
+                    var targets = creep.pos.findClosestByPath(FIND_STRUCTURES,{
+                        filter: object => (object.hits < object.hitsMax)
+                    });
+                    creep.memory.repairJobId = '' + targets.id
+                }
             }
 
         }
