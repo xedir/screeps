@@ -39,6 +39,7 @@ module.exports.loop = function () {
             Game.spawns['Spawn1'].memory.quelle2 = Game.spawns['Spawn1'].room.find(FIND_SOURCES)[1].id;
         }
         Game.spawns['Spawn1'].memory.init = true;
+        Game.spawns['Spawn1'].memory.status = 1;
     }
 
     /*
