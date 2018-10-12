@@ -34,7 +34,7 @@ var roleRepairer = {
         }
 
         if(creep.memory.repairJobId !== 'voll' && creep.memory.repairJobId !== 'undefined' && creep.memory.repairing){
-            target = Game.getObjectById(creep.memory.repairJobId);
+            var target = Game.getObjectById(creep.memory.repairJobId);
             console.log(target)
         }
 /*
