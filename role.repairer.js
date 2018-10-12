@@ -37,7 +37,7 @@ var roleRepairer = {
             target = Game.getObjectById(creep.memory.repairJobId);
             console.log(target)
         }
-
+/*
         if(creep.memory.repairing){
             if(target.hits < target.hitsMax){
                 if(creep.repaid(target) === ERR_NOT_IN_RANGE){
@@ -56,7 +56,7 @@ var roleRepairer = {
                 }
             }
         }
-
+*/
     }
 };
 
