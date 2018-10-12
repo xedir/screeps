@@ -26,8 +26,8 @@ var spawner = {
         //console.log(lebendeHarvesterOne);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
-            lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvesterSourceTwo' && creep.ticksToLive > 70);
-            lebendeCarrysTwo = _.filter(Game.creeps, (creep) => creep.memory.role === 'carry' && creep.ticksToLive > 50 && creep.memory.quelle === 'quelle2');
+            var lebendeHarvesterTwo = _.filter(Game.creeps, (creep) => creep.memory.role === 'harvesterSourceTwo' && creep.ticksToLive > 70);
+            var lebendeCarrysTwo = _.filter(Game.creeps, (creep) => creep.memory.role === 'carry' && creep.ticksToLive > 50 && creep.memory.quelle === 'quelle2');
             var lebendeHarvesterTwoDebugText = 'HarvesterTwo: ' + lebendeHarvesterTwo.length + '  ';
             var lebendeCarrysTwoDebugText = 'CarrysTwo: ' + lebendeCarrysTwo.length + '  ';
         }
