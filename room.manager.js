@@ -17,7 +17,7 @@ var roomManager = {
                 if(struktur === undefined){
                     struktur = posi.lookFor(LOOK_CONSTRUCTION_SITES);
                     if(struktur === undefined){
-                        spawn.room.createConstructionSite(posi.x, posi.y, STRUCTURE_ROAD)
+                        spawn.room.createConstructionSite(posi, STRUCTURE_ROAD)
                     }
                     console.log(struktur)
                 }
