@@ -47,7 +47,7 @@ var roleRepairer = {
             console.log(creep.name + ". ." + target)
         }
 
-        if (creep.memory.repairing) {
+        if (creep.memory.repairing && target != 0) {
             if (target.hits < target.hitsMax) {
 
                 if (creep.repair(target) === ERR_NOT_IN_RANGE) {
