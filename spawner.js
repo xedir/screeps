@@ -57,12 +57,12 @@ var spawner = {
             });
         }else if(lebendeCarrysTwo.length < 3){
                 var name = "Carry " + Game.time.toString();
-                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
+                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
                     memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
                 });
         }else if(builders.length < 2){
             var name = "Builder " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'builder'}
             });
         } else if (rep.length < 2){
