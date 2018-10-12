@@ -31,7 +31,7 @@ module.exports.loop = function () {
 
 
 
-    if(Game.spawns['Spawn1'].memory.init == false){
+    if(Game.spawns['Spawn1'].memory.init === false){
         Game.spawns['Spawn1'].memory.quelle1 = Game.spawns['Spawn1'].room.find(FIND_SOURCES)[0].id;
         Game.spawns['Spawn1'].memory.quelle2 = false;
 
@@ -59,19 +59,19 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
-        if(creep.memory.role == 'harvesterSourceOne' || creep.memory.role == "harvesterSourceTwo") {
+        if(creep.memory.role === 'harvesterSourceOne' || creep.memory.role === "harvesterSourceTwo") {
             roleHarvester.run(creep);
         }
-        if(creep.memory.role == 'upgrader') {
+        if(creep.memory.role === 'upgrader') {
             roleUpgrader.run(creep);
         }
-        if(creep.memory.role == 'builder') {
+        if(creep.memory.role === 'builder') {
             roleBuilder.run(creep);
         }
-        if(creep.memory.role == 'repairer') {
+        if(creep.memory.role === 'repairer') {
             roleRepairer.run(creep);
         }
-        if(creep.memory.role == 'carry'){
+        if(creep.memory.role === 'carry'){
             roleCarry.run(creep);
         }
     }
