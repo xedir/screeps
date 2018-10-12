@@ -21,6 +21,8 @@ var roleRepairer = {
 
             targets.sort((a,b) => a.hits -b.hits);
             creep.memory.repairJob = targets[0].id
+
+            console.log(Game.getObjectById(creep.memory.repairJob).hits)
         }
 
 
