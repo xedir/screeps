@@ -80,7 +80,7 @@ module.exports.loop = function () {
         var creep= Game.creeps[name];
         if(creep.ticksToLive < 30 ){
             creep.memory.role = 'tot';
-            if(creep.energy != 0) {
+            if(creep.carry != 0) {
                 if (creep.upgradeController(creep.room.controller) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
