@@ -7,7 +7,8 @@ var roomManager = {
             console.log("Quelle Pos: " + Game.getObjectById(spawn.memory.quelle1).pos);
 
 
-            var pfad = PathFinder.search(spawn.pos, (Game.getObjectById(spawn.memory.quelle1).pos), 1).path;
+            var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 1 }
+            var pfad = PathFinder.search(spawn.pos, ziel).path;
                 //spawn.findPathTo(Game.getObjectById(spawn.memory.quelle1).pos);
 
             spawn.memory.status = 1;
