@@ -5,11 +5,11 @@ var roleCarry = {
 
         if (creep.memory.carrying && creep.carry.energy == 0) {
             creep.memory.carrying = false;
-            creep.say('🔄 loot');
+            creep.say('loot_C');
         }
         if (!creep.memory.carrying && creep.carry.energy == creep.carryCapacity) {
             creep.memory.carrying = true;
-            creep.say('⚡ upgrade');
+            creep.say('stash_C');
         }
 
         if (creep.memory.carrying) {

@@ -5,11 +5,11 @@ var roleUpgrader = {
 
         if(creep.memory.upgrading && creep.carry.energy == 0) {
             creep.memory.upgrading = false;
-            creep.say('🔄 loot');
+            creep.say('loot_U');
         }
         if(!creep.memory.upgrading && creep.carry.energy == creep.carryCapacity) {
             creep.memory.upgrading = true;
-            creep.say('⚡ upgrade');
+            creep.say('upgrade_U');
         }
 
         if(creep.memory.upgrading) {
