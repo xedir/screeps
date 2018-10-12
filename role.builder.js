@@ -1,3 +1,5 @@
+var roleUpgrader = require('role.upgrader');
+
 var roleBuilder = {
 
     /** @param {Creep} creep **/
@@ -30,6 +32,9 @@ var roleBuilder = {
                     if(creep.build(targets) === ERR_NOT_IN_RANGE) {
                         creep.moveTo(targets, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
+                } else {
+                    creep.memory.upgrading = true
+                    roleUpgrader.run(crep);
                 }
             }
         }
