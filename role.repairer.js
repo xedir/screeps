@@ -23,7 +23,8 @@ var roleRepairer = {
             creep.memory.repairJob = targets[0].id
         }
 */
-    creep.memory.repairJob = undefined;
+    creep.memory.repairJob = 'leer' ;
+
 
 
     }

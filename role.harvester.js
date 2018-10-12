@@ -8,19 +8,19 @@ var roleHarvester = {
 
             var target = creep.memory.source;
 
-            if(creep.memory.role == "harvesterSourceOne") {
+            if(creep.memory.role === "harvesterSourceOne") {
 
-                if (creep.harvest(Game.getObjectById(creep.memory.source.id)) == ERR_NOT_IN_RANGE){
+                if (creep.harvest(Game.getObjectById(creep.memory.source.id)) === ERR_NOT_IN_RANGE){
                     creep.moveTo(Game.getObjectById(creep.memory.source.id), {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
-            } else if(creep.memory.role == "harvesterSourceTwo"){
-                if (creep.harvest(Game.getObjectById(creep.memory.source.id)) == ERR_NOT_IN_RANGE){
+            } else if(creep.memory.role === "harvesterSourceTwo"){
+                if (creep.harvest(Game.getObjectById(creep.memory.source.id)) === ERR_NOT_IN_RANGE){
                     creep.moveTo(Game.getObjectById(creep.memory.source.id), {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
             }
         }
         else {
-            if(creep.transfer(Game.getObjectById(creep.memory.container[0].id), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            if(creep.transfer(Game.getObjectById(creep.memory.container[0].id), RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(Game.getObjectById(creep.memory.container[0].id), {visualizePathStyle: {stroke: '#ffffff'}});
                 }
         }

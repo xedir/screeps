@@ -61,7 +61,7 @@ var spawner = {
         } else if (rep.length < 2){
             var name = "Repairer " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
-                memory: {role: 'repairer', repairJob: undefined}
+                memory: {role: 'repairer', repairJob: 'leer'}
             });
         } else if(upgraders.length < 2){
             var name = "Upgrader " + Game.time.toString();
