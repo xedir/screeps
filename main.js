@@ -80,11 +80,14 @@ module.exports.loop = function () {
         var creep= Game.creeps[name];
         if(creep.ticksToLive < 30 ){
             creep.memory.role = 'tot';
-                if (creep.upgradeController(creep.room.controller) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#ffffff'}});
+            var targets = Game.spawns['Spawn1'].pos.find(FIND_STRUCTURES, {
+                filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
+            });
+            if(targets.length > 0) {
+                if(creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
-                if(creep.ticksToLive > 28)
-                    creep.say('RiP');
+            }
         }
     }
 
