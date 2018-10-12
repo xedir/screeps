@@ -32,18 +32,17 @@ var roleRepairer = {
 
         if(creep.memory.repairJobId !== 'voll' && creep.memory.repairJobId !== 'undefined' && creep.memory.repairing){
             var target = Game.getObjectById(creep.memory.repairJobId);
-
+            creep.say('Rep ' + target.structureType);
         }
 
         if(creep.memory.repairing){
             if(target.hits < target.hitsMax){
-                creep.say('Rep ' + target.structureType);
+
                 if(creep.repair(target) === ERR_NOT_IN_RANGE){
                     creep.moveTo(target)
                 }
              } else
                  creep.memory.repairJobId = 'voll';
-
         } else {
             var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
                 filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy > 50
