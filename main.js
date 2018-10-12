@@ -80,7 +80,7 @@ module.exports.loop = function () {
         var creep= Game.creeps[name];
         if(creep.ticksToLive < 30 ){
             creep.memory.role = 'tot';
-            var targets = Game.spawns['Spawn1'].pos.find(FIND_STRUCTURES, {
+            var targets = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
                 filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
             });
             if(targets.length > 0) {
