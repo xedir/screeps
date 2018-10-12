@@ -13,7 +13,7 @@ var roomManager = {
             for(var posis in pfad){
                 var posi = pfad[posis];
                 var struktur = posi.lookFor(LOOK_STRUCTURES);
-                if(struktur === undefined){
+                if(struktur[0] === undefined){
                 console.log(struktur)
                 }
             }
