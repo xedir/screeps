@@ -52,27 +52,27 @@ var spawner = {
             });
         } else if(lebendeCarrysOne.length < 1){
             var name = "Carry " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,CARRY,WORK,CARRY,CARRY,CARRY], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'carry', carrying: false, quelle: 'quelle1'}
             });
-        }else if(lebendeCarrysTwo.length < 3){
+        }else if(lebendeCarrysTwo.length < 2){
                 var name = "Carry " + Game.time.toString();
-                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
+                Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
                     memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
                 });
         }else if(builders.length < 2){
             var name = "Builder " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,MOVE,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'builder'}
             });
         } else if (rep.length < 2){
             var name = "Repairer " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
                 memory: {role: 'repairer', repairJobId: 'undefined'}
             });
-        } else if(upgraders.length < 4){
+        } else if(upgraders.length < 2){
             var name = "Upgrader " + Game.time.toString();
-            Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, CARRY, MOVE], name, {
+            Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY], name, {
                 memory: {role: 'upgrader'}
             });
         } else if (Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){
