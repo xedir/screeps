@@ -34,7 +34,7 @@ var roleBuilder = {
                     }
                 } else {
                     creep.memory.upgrading = true
-                    roleUpgrader.run(crep);
+                    roleUpgrader.run(creep);
                 }
             }
         }
