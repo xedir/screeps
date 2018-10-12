@@ -60,7 +60,7 @@ var spawner = {
                 Game.spawns['Spawn1'].spawnCreep([MOVE,MOVE,MOVE,WORK,CARRY,CARRY,CARRY], name, {
                     memory: {role: 'carry', carrying: false, quelle: 'quelle2'}
                 });
-        }else if(builders.length < 3){
+        }else if(builders.length < 2){
             var name = "Builder " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'builder'}
@@ -70,7 +70,7 @@ var spawner = {
             Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], name, {
                 memory: {role: 'repairer', repairJobId: 'undefined'}
             });
-        } else if(upgraders.length < 2){
+        } else if(upgraders.length < 3){
             var name = "Upgrader " + Game.time.toString();
             Game.spawns['Spawn1'].spawnCreep([WORK, CARRY, CARRY, CARRY, MOVE], name, {
                 memory: {role: 'upgrader'}
