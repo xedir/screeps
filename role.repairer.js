@@ -21,14 +21,15 @@ var roleRepairer = {
 
 
             if (targets.length > 0){
+                targets.sort((a,b) => a.hits -b.hits);
                 creep.memory.repairJobId = targets[0].id
-            } else
+            } else {
                 var targets = creep.room.find(FIND_STRUCTURES,{
                     filter: object => (object.hitsMax - object.hits)  < (object.hitsMax * 0.1)
                 });
-
-            targets.sort((a,b) => a.hits -b.hits);
-            creep.memory.repairJobId = targets[0].id
+                targets.sort((a,b) => a.hits -b.hits);
+                creep.memory.repairJobId = targets[0].id
+            }
 
         }
 
