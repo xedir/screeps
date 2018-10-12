@@ -1,3 +1,5 @@
+var roleBuilder = require('role.builder');
+
 var roleRepairer = {
 
     /** @param {Creep} creep **/
@@ -31,9 +33,12 @@ var roleRepairer = {
                 if(targets != null){
                 creep.memory.repairJobId = '' + targets.id
                 creep.say('Rep ' + targets.structureType);
-                } else {
+                } else if (backup != null) {
 
                     creep.memory.repairJobId = '' + backup.id
+                } else {
+                    creep.memory.building = true;
+                    roleBuilder.run(creep);
                 }
             }
 
