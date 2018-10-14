@@ -6,10 +6,17 @@ var roomController = {
         if(!roomToControll.memory.init) {
             initRoom(roomToControll);
 
-        } else
-            var myRooms = Game.rooms;
-            if(myRooms == 1) {
-            roomToControll.memory.roomTyp = 'Hauptraum';
+        } else {
+            var ControledRooms = [];
+            var z = 0;
+            for (var name in Game.rooms) {
+                ControledRooms[z] = Game.rooms[name];
+                z++;
+            }
+            if(ControledRooms.length == 1){
+                roomToControll.memory.roomType = 'Hauptraum';
+            }
+
         }
     }
 };
