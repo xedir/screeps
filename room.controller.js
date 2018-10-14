@@ -3,7 +3,7 @@ var roomController = {
     run: function(roomToControll) {
 
 
-        if(roomToControll.memory.init){
+        if(roomToControll.memory.init != undefined){
             console.log('hi');
 
         }
