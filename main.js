@@ -5,8 +5,16 @@ var spawner = require('spawner');
 var roleRepairer = require('role.repairer');
 var roleCarry = require('role.carry');
 var roomManager = require('room.manager');
+var roomController = require('room.controller');
 
 module.exports.loop = function () {
+
+
+    for(var i in Game.rooms){
+
+        roomController.run(i);
+    }
+
 
     for(var i in Memory.creeps) {
         if(!Game.creeps[i]) {
@@ -14,22 +22,24 @@ module.exports.loop = function () {
         }
     }
 
+    var towers = _.filter(Game.structures, (object) => object.structureType === STRUCTURE_TOWER);
 
-    var tower = Game.getObjectById('TOWER_ID');
-    if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => structure.hits < structure.hitsMax
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
-
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if(closestHostile) {
-            tower.attack(closestHostile);
+    for (var i in towers){
+        var tower = Game.getObjectById(i);
+        if(tower) {
+            var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+            if (closestHostile) {
+                tower.attack(closestHostile);
+            } else {
+                var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+                    filter: (structure) => structure.hits < structure.hitsMax
+                });
+                if (closestDamagedStructure) {
+                    tower.repair(closestDamagedStructure);
+                }
+            }
         }
     }
-
 
 
     if(Game.spawns['Spawn1'].memory.init != true){
@@ -57,7 +67,6 @@ module.exports.loop = function () {
     }));
 
 */
-
 
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
@@ -98,7 +107,4 @@ module.exports.loop = function () {
         spawner.run(spawn);
         roomManager.run(spawn);
     }
-
-
-
 };

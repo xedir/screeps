@@ -1,6 +1,31 @@
-var roomManager = {
+var roomController = {
 
-    run: function(spawn) {
+    run: function(room) {
+
+
+        var spawn = room.find(STRUCTURE_SPAWN)[0];
+        if(spawn){
+            room.memory.spawner = spawn;
+        } else {
+            room.memory.spawner = false;
+        }
+
+
+        if(spawner != false){
+
+
+            room.memory.energyToSpawn = room.energyAvailable;
+            room.memory.energyToSpawnCap = room.energyCapacityAvailable;
+
+
+
+
+        }
+
+
+
+
+
 
         if (spawn.memory.status == 1) {
             console.log("Spawner Pos: " + spawn.pos)
@@ -10,7 +35,7 @@ var roomManager = {
             var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 2 };
 
             for(var quellen in spawn){
-                
+
 
             }
 
@@ -18,7 +43,7 @@ var roomManager = {
 
 
             var pfad = PathFinder.search(spawn.pos, ziel).path;
-                //spawn.findPathTo(Game.getObjectById(spawn.memory.quelle1).pos);
+            //spawn.findPathTo(Game.getObjectById(spawn.memory.quelle1).pos);
 
             spawn.memory.status = 1;
 
@@ -41,4 +66,4 @@ var roomManager = {
     }
 };
 
-module.exports = roomManager;
+module.exports = roomController;

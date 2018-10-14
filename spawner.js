@@ -21,8 +21,6 @@ var spawner = {
         var lebendeCarrysOne = _.filter(Game.creeps, (creep) => creep.memory.role === 'carry' && creep.ticksToLive > 150 && creep.memory.quelle === 'quelle1');
 
 
-
-
         //console.log(lebendeHarvesterOne);
 
         if(Game.spawns['Spawn1'].room.find(FIND_SOURCES).length > 1){

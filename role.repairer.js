@@ -60,7 +60,7 @@ var roleRepairer = {
                 creep.memory.repairJobId = 'voll';
         } else {
             var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
-                filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy > 50
+                filter: (structure) => (structure.structureType === STRUCTURE_CONTAINER || structure.structureType === STRUCTURE_STORAGE) && structure.store.energy > 50
             })
             if (targets.length > 0) {
                 creep.say('Tanken_R');
@@ -69,7 +69,6 @@ var roleRepairer = {
                 }
             }
         }
-
     }
 };
 

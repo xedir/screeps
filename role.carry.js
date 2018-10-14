@@ -24,7 +24,7 @@ var roleCarry = {
                 }
             } else {
                 var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
-                    filter: (structure) => structure.structureType === STRUCTURE_CONTAINER && structure.store.energy < structure.storeCapacity
+                    filter: (structure) => (structure.structureType === STRUCTURE_CONTAINER || structure.structureType === STRUCTURE_STORAGE) && structure.store.energy < structure.storeCapacity
                 });
                 if (targets.length > 0) {
                     if (creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
