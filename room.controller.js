@@ -1,13 +1,18 @@
 var roomController = {
 
-    run: function(room) {
+    run: function(roomToControll) {
 
 
-        var spawn = room.find(STRUCTURE_SPAWN)[0];
+        if(roomToControll.memory.init == undefined){
+
+        }
+
+
+        var spawn = roomToControll.find(STRUCTURE_SPAWN)[0];
         if(spawn){
-            room.memory.spawner = spawn;
+            roomToControll.memory.spawner = spawn;
         } else {
-            room.memory.spawner = false;
+            roomToControll.memory.spawner = false;
         }
 
 
