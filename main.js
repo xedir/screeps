@@ -12,7 +12,7 @@ module.exports.loop = function () {
 
     for(var i in Game.rooms){
 
-        roomController.run(i);
+        roomController.run(Game.rooms[i]);
     }
 
 

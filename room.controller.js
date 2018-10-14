@@ -6,7 +6,9 @@ var roomController = {
         if(!roomToControll.memory.init) {
             initRoom(roomToControll);
 
-        } else if(Game.rooms.length == 1) {
+        } else
+            var myRooms = Game.rooms;
+            if(myRooms == 1) {
             roomToControll.memory.roomTyp = 'Hauptraum';
         }
     }
