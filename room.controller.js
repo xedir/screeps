@@ -45,15 +45,15 @@ function buildMiningContainer(room){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
         var build = [];
-        build[0] = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+        build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
 
         for(let x = -1; x < 2; x++){
             for(let y = -1; y < 2; y++){
                 if(terrain.get(targetX+x, targetY+y) == 0){
-                    build[0].x = targetX+x;
-                    build[0].y = targetY+y;
+                    build.x = targetX+x;
+                    build.y = targetY+y;
 
-                    console.log(build[0])
+                    console.log(build)
                 }
             }
         }
