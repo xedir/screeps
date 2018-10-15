@@ -52,7 +52,7 @@ function buildMiningContainer(room){
                 if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2 && result == false){
                     build.x = targetX+x;
                     build.y = targetY+y;
-                    room.createConstructionSite(build, STRUCTURE_CONTAINER);
+                    build.room.createConstructionSite(build, STRUCTURE_CONTAINER);
                     result = true;
                 }
             }
