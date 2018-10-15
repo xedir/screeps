@@ -36,25 +36,31 @@ function initRoom(room){
     }
 }
 
-function buildMiningContainer(room){
+function buildMiningContainer(roomAt){
 
     const terrain = new Room.Terrain(room.name);
     console.log(terrain);
 
 
-    for(var i in room.memory.sources){
-        var targetX = room.memory.sources[i].pos.x;
-        var targetY = room.memory.sources[i].pos.y;
-        var build = {room: room.memory.sources[i].room.name, x: targetX, y: targetY};
+    for(var i in roomAt.memory.sources){
+        var targetX = roomAt.memory.sources[i].pos.x;
+        var targetY = roomAt.memory.sources[i].pos.y;
+        var buildAt = {roomName: roomAt.memory.sources[i].room, x: targetX, y: targetY};
         var result = false;
 
-        for(let x = -1; x < 2; x++){
-            for(let y = -1; y < 2; y++){
-                if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2 && result == false){
-                    build.x = targetX+x;
-                    build.y = targetY+y;
-                    build.createConstructionSite(build, STRUCTURE_CONTAINER);
-                    result = true;
+        if(roomAt.memory.sources[i].containerStatus == 'leer'){
+            roomAt.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
+            roomAt.memory.sources[i].containerStatus = 'construction';
+        }else{
+            for(let x = -1; x < 2; x++){
+                for(let y = -1; y < 2; y++){
+                    if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2 && result == false){
+                        buildAt.x = targetX+x;
+                        buildAt.y = targetY+y;
+                        roomAt.memory.sources[i].containerLocation = buildAt;
+                        roomAt.memory.sources[i].containerStatus = 'leer';
+                    }
+                    console.log(struktur)
                 }
             }
         }
