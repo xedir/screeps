@@ -39,16 +39,26 @@ function buildMiningContainer(room){
 
     const terrain = new Room.Terrain(room.name);
     console.log(terrain);
-    /*
+
+
     for(var i in room.memory.sources){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
-        var build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+        var build = [];
+        build[0] = {room: room.memory.sources[i].room, x: targetX, y: targetY};
 
-        var builds = room.memory.sources[i].room.lookForAtArea(LOOK_TERRAIN, targetY+1, targetX-1, targetY-1, targetX-1)
-        console.log(builds);
+        for(let x = -1; x < 2; x++){
+            for(let y = -1; y < 2; y++){
+                if(terrain.get(targetX+x, targetY+y) == 0){
+                    build[0].x = targetX+x;
+                    build[0].y = targetY+y;
+
+                    console.log(build[0])
+                }
+            }
+        }
     }
-    */
+
 
 /*
     var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 2 };
