@@ -6,7 +6,7 @@ var roleRepairer = require('role.repairer');
 var roleCarry = require('role.carry');
 //var roomManager = require('room.manager');
 var roomController = require('room.controller');
-var gameController = require('gane.controller');
+var gameController = require('game.controller');
 
 module.exports.loop = function () {
 
@@ -16,7 +16,13 @@ module.exports.loop = function () {
         roomController.run(Game.rooms[i]);
     }
 
-    gameController.run();
+    if(!gameController){
+        var master = new gameController;
+    } else{
+        master.run();
+    }
+
+
 
 
 
