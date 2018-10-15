@@ -38,18 +38,20 @@ function initRoom(room){
 
 function buildMiningContainer(roomAt){
 
-    const terrain = new Room.Terrain(room.name);
+    const terrain = new Room.Terrain(roomAt.name);
     console.log(terrain);
 
 
     for(var i in roomAt.memory.sources){
         var targetX = roomAt.memory.sources[i].pos.x;
         var targetY = roomAt.memory.sources[i].pos.y;
-        var buildAt = {roomName: roomAt.memory.sources[i].room, x: targetX, y: targetY};
+        var buildAt = {roomName: roomAt.memory.sources[i].room.name, x: targetX, y: targetY};
+        var bauRaum = [];
+            bauRaum[0] = '' + roomAt.name;
         var result = false;
 
         if(roomAt.memory.sources[i].containerStatus == 'leer'){
-            roomAt.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
+            (Game.getObjectById(roomAt.memory.source[i])).room.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
             roomAt.memory.sources[i].containerStatus = 'construction';
         }else{
             for(let x = -1; x < 2; x++){
@@ -60,37 +62,11 @@ function buildMiningContainer(roomAt){
                         roomAt.memory.sources[i].containerLocation = buildAt;
                         roomAt.memory.sources[i].containerStatus = 'leer';
                     }
-                    console.log(struktur)
                 }
             }
         }
     }
 
-
-/*
-    var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 2 };
-
-
-    var pfad = PathFinder.search(spawn.pos, ziel).path;
-    //spawn.findPathTo(Game.getObjectById(spawn.memory.quelle1).pos);
-
-    spawn.memory.status = 1;
-
-    for(var posis in pfad){
-        var posi = pfad[posis];
-        var struktur = posi.lookFor(LOOK_STRUCTURES);
-
-        if(struktur != 'structure'){
-            struktur = posi.lookFor(LOOK_CONSTRUCTION_SITES);
-            if(struktur != 'constructionSite'){
-                spawn.room.createConstructionSite(posi, STRUCTURE_ROAD)
-            }
-            console.log(struktur)
-        }
-    }
-    console.log(pfad);
-
-    */
 }
 
 

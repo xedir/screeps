@@ -4,7 +4,7 @@ var roleBuilder = require('role.builder');
 var spawner = require('spawner');
 var roleRepairer = require('role.repairer');
 var roleCarry = require('role.carry');
-var roomManager = require('room.manager');
+//var roomManager = require('room.manager');
 var roomController = require('room.controller');
 
 module.exports.loop = function () {
@@ -105,7 +105,7 @@ module.exports.loop = function () {
     for(var spawns in Game.spawns){
         var spawn = Game.spawns[spawns];
         spawner.run(spawn);
-        roomManager.run(spawn);
+        //roomManager.run(spawn);
     }
 
 };
