@@ -5,7 +5,6 @@ var roomController = {
 
         if(!roomToControll.memory.init) {
             initRoom(roomToControll);
-
         } else {
             var ControledRooms = [];
             var z = 0;
@@ -18,6 +17,8 @@ var roomController = {
             }
 
         }
+        buildMiningContainer(roomToControll);
+
     }
 };
 
@@ -33,6 +34,44 @@ function initRoom(room){
         //TODO Rohstoffe und Check für Sources ob diese Safe sind
     }
 }
+
+function buildMiningContainer(room){
+
+    for(var i in room.memory.sources){
+        var targetX = room.memory.sources[i].pos.x;
+        var targetY = room.memory.sources[i].pos.y;
+        var build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+
+        var builds = room.memory.sources[i].room.lookForAtArea(LOOK_TERRAIN, targetY+1, targetX-1, targetY-1, targetX-1)
+        console.log(builds);
+
+    }
+/*
+    var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 2 };
+
+
+    var pfad = PathFinder.search(spawn.pos, ziel).path;
+    //spawn.findPathTo(Game.getObjectById(spawn.memory.quelle1).pos);
+
+    spawn.memory.status = 1;
+
+    for(var posis in pfad){
+        var posi = pfad[posis];
+        var struktur = posi.lookFor(LOOK_STRUCTURES);
+
+        if(struktur != 'structure'){
+            struktur = posi.lookFor(LOOK_CONSTRUCTION_SITES);
+            if(struktur != 'constructionSite'){
+                spawn.room.createConstructionSite(posi, STRUCTURE_ROAD)
+            }
+            console.log(struktur)
+        }
+    }
+    console.log(pfad);
+
+    */
+}
+
 
 
 module.exports = roomController;
