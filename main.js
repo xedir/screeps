@@ -17,7 +17,7 @@ module.exports.loop = function () {
     }
 
     if(!gameController){
-        var master = new gameController;
+        var master = new GameController;
     } else{
         master.run();
     }

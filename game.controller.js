@@ -10,6 +10,11 @@ var gameController = {
 
 };
 
+class GameController {
+
+
+    
+}
 
 function setupRooms(){
 
