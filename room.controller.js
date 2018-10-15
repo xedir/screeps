@@ -37,6 +37,9 @@ function initRoom(room){
 
 function buildMiningContainer(room){
 
+    const terrain = new Room.Terrain(room.name);
+    console.log(terrain);
+    /*
     for(var i in room.memory.sources){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
@@ -44,8 +47,9 @@ function buildMiningContainer(room){
 
         var builds = room.memory.sources[i].room.lookForAtArea(LOOK_TERRAIN, targetY+1, targetX-1, targetY-1, targetX-1)
         console.log(builds);
-
     }
+    */
+
 /*
     var ziel = {pos :Game.getObjectById(spawn.memory.quelle1).pos , range: 2 };
 
