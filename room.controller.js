@@ -45,7 +45,7 @@ function buildMiningContainer(room){
     for(var i in room.memory.sources){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
-        var build = {roomName: room.memory.sources[i].room.name, x: targetX, y: targetY};
+        var build = {room: room.memory.sources[i].room.name, x: targetX, y: targetY};
         var result = false;
 
         for(let x = -1; x < 2; x++){
