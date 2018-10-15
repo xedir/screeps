@@ -49,11 +49,12 @@ function buildMiningContainer(room){
 
         for(let x = -1; x < 2; x++){
             for(let y = -1; y < 2; y++){
-                if(terrain.get(targetX+x, targetY+y) == 0){
+                if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2){
                     build.x = targetX+x;
                     build.y = targetY+y;
 
-                    console.log(build)
+                    room.memory.sources[i].containerLocation =build;
+                    return
                 }
             }
         }
