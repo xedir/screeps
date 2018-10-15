@@ -41,17 +41,16 @@ function buildMiningContainer(roomAt){
     const terrain = new Room.Terrain(roomAt.name);
     console.log(terrain);
 
-
     for(var i in roomAt.memory.sources){
         var targetX = roomAt.memory.sources[i].pos.x;
         var targetY = roomAt.memory.sources[i].pos.y;
         var buildAt = {roomName: roomAt.memory.sources[i].room.name, x: targetX, y: targetY};
         var bauRaum = [];
-            bauRaum[0] = '' + roomAt.name;
+        bauRaum[0] = '' + roomAt.name;
         var result = false;
 
         if(roomAt.memory.sources[i].containerStatus == 'leer'){
-            (Game.getObjectById(roomAt.memory.source[i])).room.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
+            (Game.getObjectById(roomAt.memory.sources[i].id)).room.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
             roomAt.memory.sources[i].containerStatus = 'construction';
         }else{
             for(let x = -1; x < 2; x++){

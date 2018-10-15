@@ -6,6 +6,7 @@ var roleRepairer = require('role.repairer');
 var roleCarry = require('role.carry');
 //var roomManager = require('room.manager');
 var roomController = require('room.controller');
+var roomController = require('gane.controller');
 
 module.exports.loop = function () {
 
@@ -14,6 +15,9 @@ module.exports.loop = function () {
 
         roomController.run(Game.rooms[i]);
     }
+
+    gameController.run();
+
 
 
     for(var i in Memory.creeps) {

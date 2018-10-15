@@ -50,7 +50,7 @@ function buildMiningContainer(roomAt){
         if(roomAt.memory.sources[i].containerStatus == 'leer'){
             roomAt.createConstructionSite(roomAt.memory.sources[i].containerLocation.x, roomAt.memory.sources[i].containerLocation.y, STRUCTURE_CONTAINER);
             roomAt.memory.sources[i].containerStatus = 'construction';
-        }else{
+        }else if (!roomAt.memory.sources[i].containerStatus){
             for(let x = -1; x < 2; x++){
                 for(let y = -1; y < 2; y++){
                     if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2 && result == false){
