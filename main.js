@@ -19,7 +19,7 @@ module.exports.loop = function () {
     if(!gameController){
         var master = new GameController;
     } else{
-        master.run();
+        master.setupRooms();
     }
 
 
