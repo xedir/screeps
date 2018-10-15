@@ -1,4 +1,4 @@
-var gamecontroller = {
+var gameController = {
 
     run: function() {
 
@@ -20,7 +20,7 @@ function setupRooms(){
 
         var nachbarn = Game.map.describeExits(nameRaum);
 
-        Memory.myControlledRooms[z].nachbarn = Game.rooms;
+        //Memory.myControlledRooms[z].nachbarn = Game.rooms;
         z++;
     }
 }
