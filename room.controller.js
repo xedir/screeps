@@ -44,17 +44,16 @@ function buildMiningContainer(room){
     for(var i in room.memory.sources){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
-        var build = [];
-        build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+        var build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+        var result = false;
 
         for(let x = -1; x < 2; x++){
             for(let y = -1; y < 2; y++){
-                if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2){
+                if(terrain.get(targetX+x, targetY+y) !== 1 && terrain.get(targetX+x, targetY+y) !== 2 && result == false){
                     build.x = targetX+x;
                     build.y = targetY+y;
-
-                    room.memory.sources[i].containerLocation =build;
-                    return
+                    room.createConstructionSite(build, STRUCTURE_CONTAINER);
+                    result = true;
                 }
             }
         }
