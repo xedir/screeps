@@ -5,6 +5,7 @@ var roomController = {
 
         if(!roomToControll.memory.init) {
             initRoom(roomToControll);
+            roomToControll.memory.status
         } else {
             var ControledRooms = [];
             var z = 0;
@@ -44,7 +45,7 @@ function buildMiningContainer(room){
     for(var i in room.memory.sources){
         var targetX = room.memory.sources[i].pos.x;
         var targetY = room.memory.sources[i].pos.y;
-        var build = {room: room.memory.sources[i].room, x: targetX, y: targetY};
+        var build = {roomName: room.memory.sources[i].room, x: targetX, y: targetY};
         var result = false;
 
         for(let x = -1; x < 2; x++){
