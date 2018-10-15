@@ -13,14 +13,14 @@ var roleCarry = {
         }
 
         if (creep.memory.carrying) {
-            var targets = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
+            var targets = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                 filter: (structure) => (structure.structureType === STRUCTURE_SPAWN && structure.energy < structure.energyCapacity)
                     || (structure.structureType === STRUCTURE_EXTENSION && structure.energy < structure.energyCapacity)
                     || (structure.structureType === STRUCTURE_TOWER && structure.energy < structure.energyCapacity)
             });
-            if (targets.length > 0) {
-                if (creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+            if (targets) {
+                if (creep.transfer(targets, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
                 var targets = Game.spawns['Spawn1'].pos.findInRange(FIND_STRUCTURES, 3, {
